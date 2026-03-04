@@ -12,7 +12,6 @@ void main() {
         ),
         body: Column(
           mainAxisAlignment: MainAxisAlignment.start,
-          //crossAxisAlignment: CrossAxisAlignment.end,
           children: [
             Text(
               "My application",
