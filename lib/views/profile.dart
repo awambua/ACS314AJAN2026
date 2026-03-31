@@ -232,6 +232,5 @@ class _ProfileScreenState extends State<ProfileScreen> {
         onTap: onTap,
       ),
     );
-    ;
   }
 }

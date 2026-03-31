@@ -37,6 +37,7 @@ dependencies:
   get: ^4.7.3
 
 dev_dependencies:
+  import 'lib.dart';
   flutter_test:
     sdk: flutter
 

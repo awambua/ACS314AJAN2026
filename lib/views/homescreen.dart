@@ -1,6 +1,5 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-import 'package:flutter/material.dart';
 
+import 'package:flutter/material.dart';
 
 import 'dashboard.dart';
 import 'cars.dart';
@@ -42,10 +41,17 @@ class _HomescreenState extends State<Homescreen> {
         ],
         onTap: (index) {
           setState(() {
-            _selectedIndex = index;
+            _selectedIndex = index as int;
           });
         },
       ),
     );
   }
+  
+  Widget? CurvedNavigationBar({required Color backgroundColor, required Color buttonBackgroundColor, required Color color, required Duration animationDuration, required int index, required List<Icon> items, required Null Function(index) onTap}) {
+    return null;
+  }
+}
+
+class index {
 }

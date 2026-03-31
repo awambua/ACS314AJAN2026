@@ -8,7 +8,7 @@ class Orders extends StatefulWidget {
 }
 
 class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
-  late TabController _tabController; 
+  late TabController _tabController;
   
   final List<Map<String, dynamic>> activeOrders = [
     {
@@ -40,7 +40,6 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
-
     _tabController = TabController(length: 2, vsync: this);
   }
 
@@ -55,7 +54,6 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
     return SafeArea(
       child: Column(
         children: [
-          // Header
           const Padding(
             padding: EdgeInsets.all(16),
             child: Text(
@@ -67,7 +65,6 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
               ),
             ),
           ),
-
           TabBar(
             controller: _tabController,
             labelColor: const Color.fromARGB(255, 63, 3, 3),
@@ -78,13 +75,12 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
               Tab(text: "Completed"),
             ],
           ),
-
           Expanded(
             child: TabBarView(
               controller: _tabController,
               children: [
-                _buildOrderList(activeOrders, true),      
-                _buildOrderList(completedOrders, false),  
+                _buildOrderList(activeOrders, true),
+                _buildOrderList(completedOrders, false),
               ],
             ),
           ),
@@ -119,8 +115,8 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
   Widget _buildOrderCard(Map<String, dynamic> order, bool isActive) {
     Color statusColor;
     switch (order["status"]) {
-      case "Pending":
-        statusColor =  Colors.red;
+      case "Processing":
+        statusColor = Colors.orange;
         break;
       case "Confirmed":
         statusColor = Colors.blue;
@@ -129,7 +125,7 @@ class _OrdersState extends State<Orders> with SingleTickerProviderStateMixin {
         statusColor = Colors.green;
         break;
       default:
-        statusColor =  Colors.yellow;
+        statusColor = Colors.grey;
     }
 
     return Container(

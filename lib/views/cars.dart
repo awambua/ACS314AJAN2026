@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 class Cars extends StatefulWidget {
   const Cars({super.key});
 
@@ -19,25 +20,23 @@ class _CarsState extends State<Cars> {
       "name": "Mercedes C200",
       "price": "KSh 6,200,000",
       "year": "2024",
+      "type": "Sedan",
       "image": Icons.directions_car,
     },
     {
       "name": "Porsche 911",
       "price": "KSh 25,000,000",
       "type": "Sports",
-      "image": Icons.image,
+      "image": Icons.speed,
     },
     {
-      "name": "Range Rover sv",
+      "name": "Range Rover SV",
       "price": "KSh 18,000,000",
       "year": "2025",
-      "type": "Luxury ",
+      "type": "Luxury",
       "image": Icons.local_shipping,
     },
   ];
-
-  // ignore: recursive_getters
-  dynamic get photo => photo;
 
   String selectedFilter = "All";
 
@@ -46,7 +45,6 @@ class _CarsState extends State<Cars> {
     return SafeArea(
       child: Column(
         children: [
-          // Header
           Padding(
             padding: const EdgeInsets.all(16),
             child: Row(
@@ -67,8 +65,6 @@ class _CarsState extends State<Cars> {
               ],
             ),
           ),
-
-          // Filter Chips
           SizedBox(
             height: 50,
             child: ListView(
@@ -82,8 +78,6 @@ class _CarsState extends State<Cars> {
               ],
             ),
           ),
-
-          // Cars Grid
           Expanded(
             child: GridView.builder(
               padding: const EdgeInsets.all(16),
