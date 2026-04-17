@@ -27,31 +27,44 @@ class _HomescreenState extends State<Homescreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: _pages[_selectedIndex],
-      bottomNavigationBar: CurvedNavigationBar(
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
         backgroundColor: Colors.transparent,
-        buttonBackgroundColor: const Color.fromARGB(255, 63, 3, 3),
-        color: const Color.fromARGB(255, 63, 3, 3),
-        animationDuration: const Duration(milliseconds: 300),
-        index: _selectedIndex,
-        items: const [
-          Icon(Icons.dashboard, size: 30, color: Colors.white),
-          Icon(Icons.directions_car, size: 30, color: Colors.white),
-          Icon(Icons.shopping_cart, size: 30, color: Colors.white),
-          Icon(Icons.person, size: 30, color: Colors.white),
-        ],
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+        currentIndex: _selectedIndex,
+        elevation: 20,
         onTap: (index) {
           setState(() {
-            _selectedIndex = index as int;
+            _selectedIndex = index;
           });
         },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard, size: 30),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.directions_car, size: 30),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart, size: 30),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person, size: 30),
+            label: '',
+          ),
+        ],
+        fixedColor: const Color.fromARGB(255, 63, 3, 3),
       ),
     );
   }
   
-  Widget? CurvedNavigationBar({required Color backgroundColor, required Color buttonBackgroundColor, required Color color, required Duration animationDuration, required int index, required List<Icon> items, required Null Function(index) onTap}) {
-    return null;
-  }
+
 }
 
-class index {
-}
+
