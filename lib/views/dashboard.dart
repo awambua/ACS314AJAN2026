@@ -248,3 +248,9 @@ class _DashboardState extends State<Dashboard>
     );
   }
 }
+class _DashboardState extends State<Dashboard> {
+  @override
+  Widget build(BuildContext context) {
+    return const Placeholder();
+  }
+}

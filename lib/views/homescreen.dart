@@ -1,5 +1,13 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/views/cars.dart';
+import 'package:flutter_application_1/views/dashboard.dart';
+import 'package:flutter_application_1/views/orders.dart';
+import 'package:flutter_application_1/views/profile.dart';
+import 'package:flutter_application_1/views/signup.dart';
+
+var myScreens = [Dashboard(), CarsPage(), Orders(), ProfileScreen()];
+int selectedIndex = 0;
 
 import 'dashboard.dart';
 import 'cars.dart';
@@ -39,6 +47,7 @@ class _HomescreenState extends State<Homescreen> {
         onTap: (index) {
           setState(() {
             _selectedIndex = index;
+            selectedIndex = index;
           });
         },
         items: const [
@@ -61,6 +70,7 @@ class _HomescreenState extends State<Homescreen> {
         ],
         fixedColor: const Color.fromARGB(255, 63, 3, 3),
       ),
+      body: myScreens[selectedIndex],
     );
   }
   
