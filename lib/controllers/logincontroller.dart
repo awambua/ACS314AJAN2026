@@ -1,20 +1,35 @@
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 
 class LoginController extends GetxController {
   var username = "".obs;
   var password = "".obs;
-  var passwordVisible = false.obs;
-  login(user, pass) {
+  var isLoggedIn = false.obs;
+
+  
+  bool login(String user, String pass) {
     username.value = user;
     password.value = pass;
+    
     if (username.value == "admin" && password.value == "123") {
-      return true;
+      isLoggedIn.value = true;
+      return true;  
     } else {
-      return false;
+      isLoggedIn.value = false;
+      return false; 
     }
   }
 
-  togglePassword() {
-    passwordVisible.value = !passwordVisible.value;
+  void togglePassword() {
+    if (password.value == "123") {
+      password.value = "abc";
+    } else {
+      password.value = "123";
+    }
+  }
+
+  void logout() {
+    isLoggedIn.value = false;
+    username.value = "";
+    password.value = "";
   }
 }

@@ -1,4 +1,4 @@
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/views/cars.dart';
 import 'package:flutter_application_1/views/dashboard.dart';
@@ -9,32 +9,72 @@ import 'package:flutter_application_1/views/signup.dart';
 var myScreens = [Dashboard(), CarsPage(), Orders(), ProfileScreen()];
 int selectedIndex = 0;
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+import 'dashboard.dart';
+import 'cars.dart';
+import 'orders.dart';
+import 'profile.dart'; 
+
+class Homescreen extends StatefulWidget {
+  const Homescreen({super.key});
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
+  State<Homescreen> createState() => _HomescreenState();
 }
 
-class _HomeScreenState extends State<HomeScreen> {
+class _HomescreenState extends State<Homescreen> {
+  int _selectedIndex = 0;
+
+  final List<Widget> _pages = [
+    const Dashboard(),
+    const Cars(),
+    const Orders(),
+    const ProfileScreen(), 
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        backgroundColor: Colors.blueAccent,
-        items: <Widget>[
-          Icon(Icons.dashboard, size: 30),
-          Icon(Icons.category, size: 30),
-          Icon(Icons.line_style, size: 30),
-          Icon(Icons.person, size: 30),
-        ],
+      body: _pages[_selectedIndex],
+      bottomNavigationBar: BottomNavigationBar(
+        type: BottomNavigationBarType.fixed,
+        backgroundColor: Colors.transparent,
+        showSelectedLabels: false,
+        showUnselectedLabels: false,
+        selectedItemColor: Colors.white,
+        unselectedItemColor: Colors.white70,
+        currentIndex: _selectedIndex,
+        elevation: 20,
         onTap: (index) {
           setState(() {
+            _selectedIndex = index;
             selectedIndex = index;
           });
         },
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.dashboard, size: 30),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.directions_car, size: 30),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.shopping_cart, size: 30),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person, size: 30),
+            label: '',
+          ),
+        ],
+        fixedColor: const Color.fromARGB(255, 63, 3, 3),
       ),
       body: myScreens[selectedIndex],
     );
   }
+  
+
 }
+
+
